@@ -1,4 +1,4 @@
-package com.gmail.phoenixjoe.dndserver.service.impl;
+package com.gmail.phoenixjoe.dndserver.service;
 
 public interface ItemBuilderService {
 
