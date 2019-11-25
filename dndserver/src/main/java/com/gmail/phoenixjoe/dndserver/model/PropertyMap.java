@@ -2,16 +2,25 @@ package com.gmail.phoenixjoe.dndserver.model;
 
 import java.util.Map;
 
-import javax.persistence.Entity;
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MapKeyColumn;
+import javax.persistence.MappedSuperclass;
 
-@Entity
+@MappedSuperclass
 public abstract class PropertyMap {
-
+	  
+	@GeneratedValue(strategy=GenerationType.AUTO)	
 	@Id private long id;
 	
 	private String name; 
 	
+	@CollectionTable
+    @ElementCollection
+    @MapKeyColumn
 	private Map<String,Property> propertys;
 
 	public long getId() {
