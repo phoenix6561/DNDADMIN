@@ -3,12 +3,14 @@ package com.gmail.phoenixjoe.dndserver.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
 
 @MappedSuperclass
 public abstract class PropertyMap {
@@ -19,7 +21,7 @@ public abstract class PropertyMap {
 	private String name; 
 	
 	@CollectionTable
-    @ElementCollection
+	@OneToMany(cascade = CascadeType.ALL)
 	private Map<String,Property> propertys = new HashMap<String,Property>();
 
 	public long getId() {
