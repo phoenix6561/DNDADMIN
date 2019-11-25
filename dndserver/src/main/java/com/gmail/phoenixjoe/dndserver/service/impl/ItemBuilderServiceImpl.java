@@ -1,4 +1,4 @@
-package com.gmail.phoenixjoe.dndserver.service;
+package com.gmail.phoenixjoe.dndserver.service.impl;
 
 import java.util.Map;
 
@@ -9,7 +9,7 @@ import com.gmail.phoenixjoe.dndserver.enums.ItemPropertys;
 import com.gmail.phoenixjoe.dndserver.model.Item;
 import com.gmail.phoenixjoe.dndserver.model.Property;
 import com.gmail.phoenixjoe.dndserver.repository.ItemRepository;
-import com.gmail.phoenixjoe.dndserver.service.impl.ItemBuilderService;
+import com.gmail.phoenixjoe.dndserver.service.ItemBuilderService;
 
 @Service
 public class ItemBuilderServiceImpl implements ItemBuilderService {
