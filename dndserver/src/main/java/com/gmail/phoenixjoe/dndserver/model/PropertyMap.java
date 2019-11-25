@@ -1,5 +1,6 @@
 package com.gmail.phoenixjoe.dndserver.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.CollectionTable;
@@ -7,7 +8,6 @@ import javax.persistence.ElementCollection;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MapKeyColumn;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
@@ -20,8 +20,7 @@ public abstract class PropertyMap {
 	
 	@CollectionTable
     @ElementCollection
-    @MapKeyColumn
-	private Map<String,Property> propertys;
+	private Map<String,Property> propertys = new HashMap<String,Property>();
 
 	public long getId() {
 		return id;

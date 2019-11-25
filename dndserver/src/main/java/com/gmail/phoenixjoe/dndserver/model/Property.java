@@ -1,31 +1,45 @@
 package com.gmail.phoenixjoe.dndserver.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
 public class Property {
 
-private String Name;
-private String Key;
-private Object Value;
-
-
-public String getName() {
-	return Name;
+	
+	
+	@GeneratedValue(strategy=GenerationType.AUTO)	
+	@Id private long id;
+private String NameRefrence;
+private String KeyRefrence;
+private String ValueRefrence;
+public long getId() {
+	return id;
 }
-public void setName(String name) {
-	Name = name;
+public void setId(long id) {
+	this.id = id;
 }
-public String getKey() {
-	return Key;
+public String getNameRefrence() {
+	return NameRefrence;
 }
-public void setKey(String key) {
-	Key = key;
+public void setNameRefrence(String nameRefrence) {
+	NameRefrence = nameRefrence;
 }
-public Object getValue() {
-	return Value;
+public String getKeyRefrence() {
+	return KeyRefrence;
 }
-public void setValue(Object value) {
-	Value = value;
+public void setKeyRefrence(String keyRefrence) {
+	KeyRefrence = keyRefrence;
 }
-
+public String getValueRefrence() {
+	return ValueRefrence;
+}
+public void setValueRefrence(String valueRefrence) {
+	ValueRefrence = valueRefrence;
+}
 
 
 
