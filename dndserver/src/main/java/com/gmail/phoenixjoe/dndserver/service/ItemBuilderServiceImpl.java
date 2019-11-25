@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gmail.phoenixjoe.dndserver.enums.ItemPropertys;
 import com.gmail.phoenixjoe.dndserver.model.Item;
 import com.gmail.phoenixjoe.dndserver.model.Property;
 import com.gmail.phoenixjoe.dndserver.repository.ItemRepository;
@@ -25,7 +26,7 @@ public class ItemBuilderServiceImpl implements ItemBuilderService {
 		item.setName("longSword");
 		Map<String, Property> propmap = item.getPropertys();
 		Property prop = new Property();
-		prop.setNameRefrence("damage");
+		prop.setNameRefrence(ItemPropertys.DAMAGE.toString());
 		prop.setValueRefrence("1d8");
 		propmap.put(prop.getNameRefrence(), prop);
 		item.setPropertys(propmap);
@@ -48,7 +49,7 @@ public class ItemBuilderServiceImpl implements ItemBuilderService {
 		
 		
 		Property prop = new Property();
-		prop.setNameRefrence("attack bounus");
+		prop.setNameRefrence(ItemPropertys.ATTACKBONUS.toString());
 		prop.setValueRefrence("0");
 		propmap.put(prop.getNameRefrence(), prop);
 		item.setPropertys(propmap);
