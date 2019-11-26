@@ -19,7 +19,10 @@ public class ItemBuilderServiceImpl implements ItemBuilderService {
 	/* (non-Javadoc)
 	 * @see com.gmail.phoenixjoe.dndserver.service.impl.ItemBuilderSErvice#testItem()
 	 */
-	@Override
+	
+
+
+@Override
 	public void testItem() {
 		
 		Item item = new Item();
@@ -60,6 +63,25 @@ public class ItemBuilderServiceImpl implements ItemBuilderService {
 		
 		
 	}
+	
+	@Override
+	public Item createNewItem(Item item) {
+		
+		
+	return	itemRepository.save(item);
+		
+		
+	}
+	
+	@Override
+	public Item loadItem(long id) {
+		
+		
+	return	itemRepository.findById(id).orElse(null);
+		
+		
+	}
+	
 	
 	
 }
