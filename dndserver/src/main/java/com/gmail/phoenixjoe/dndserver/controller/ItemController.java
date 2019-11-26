@@ -1,12 +1,12 @@
 package com.gmail.phoenixjoe.dndserver.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,33 +15,31 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gmail.phoenixjoe.dndserver.model.Item;
 import com.gmail.phoenixjoe.dndserver.service.ItemBuilderService;
 
-
-
-
 @RestController
-@RequestMapping(path="/item") 
+@RequestMapping(path = "/item")
 public class ItemController {
-	
-	@Autowired private ItemBuilderService itemBuilderService;
-	
+
+	@Autowired
+	private ItemBuilderService itemBuilderService;
+
 	@PostMapping(value = "/createItem")
 	@ResponseBody
 	public Item createNewItem(@RequestBody Item item) {
-		
+
 		return itemBuilderService.createNewItem(item);
-		
-	
+
 	}
-	
+
 	@GetMapping("/loadItem/{itemId}")
-    public Item ItemById(@PathVariable (value = "itemId") long itemId,
-           Model model) {
+	public Item ItemById(@PathVariable(value = "itemId") long itemId, Model model) {
 		return itemBuilderService.loadItem(itemId);
-		
-		
+
 	}
-	
-	
-	
-	
+
+	@GetMapping("/loadItem/list")
+	public List<Item> FindAllItems() {
+
+		return itemBuilderService.LoadItemList();
+	}
+
 }

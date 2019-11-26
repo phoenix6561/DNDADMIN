@@ -1,7 +1,9 @@
 package com.gmail.phoenixjoe.dndserver.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -77,8 +79,24 @@ public class ItemBuilderServiceImpl implements ItemBuilderService {
 	public Item loadItem(long id) {
 		
 		
-	return	itemRepository.findById(id).orElse(null);
+		return	itemRepository.findById(id).orElse(null);
 		
+		
+	}
+	
+	@Override
+	public List<Item> LoadItemList() {
+		
+		return itemRepository.findAll();
+		
+	}
+	
+	@Override
+	public Item ModifyItem(Item modifiedItem) {
+		
+		Item item = itemRepository.findById(modifiedItem.getId()).orElse(null);
+		BeanUtils.copyProperties(modifiedItem, item);
+		return itemRepository.save(item);
 		
 	}
 	

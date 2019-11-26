@@ -1,5 +1,7 @@
 package com.gmail.phoenixjoe.dndserver.service;
 
+import java.util.List;
+
 import com.gmail.phoenixjoe.dndserver.model.Item;
 
 public interface ItemBuilderService {
@@ -12,5 +14,9 @@ public interface ItemBuilderService {
 
 
 	Item loadItem(long id);
+
+	List<Item> LoadItemList();
+
+	Item ModifyItem(Item modifiedItem);
 
 }
