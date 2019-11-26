@@ -73,4 +73,15 @@ public class ItemBuilderServiceImpl implements ItemBuilderService {
 		
 	}
 	
+	@Override
+	public Item loadItem(long id) {
+		
+		
+	return	itemRepository.findById(id).orElse(null);
+		
+		
+	}
+	
+	
+	
 }

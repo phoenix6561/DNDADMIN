@@ -1,5 +1,6 @@
 package com.gmail.phoenixjoe.dndserver;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -8,8 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	protected void configure(HttpSecurity http) throws Exception {
-	    http.authorizeRequests()
-	      .anyRequest().permitAll();
+	    http.csrf().disable().anonymous().and().authorizeRequests().antMatchers(HttpMethod.POST).permitAll()
+	      .anyRequest().permitAll().and().anonymous();
 	   
 	}
 

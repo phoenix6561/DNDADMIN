@@ -1,8 +1,10 @@
 package com.gmail.phoenixjoe.dndserver.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,9 +33,14 @@ public class ItemController {
 	
 	}
 	
+	@GetMapping("/loadItem/{itemId}")
+    public Item ItemById(@PathVariable (value = "itemId") long itemId,
+           Model model) {
+		return itemBuilderService.loadItem(itemId);
+		
+		
+	}
 	
-	
-
 	
 	
 	

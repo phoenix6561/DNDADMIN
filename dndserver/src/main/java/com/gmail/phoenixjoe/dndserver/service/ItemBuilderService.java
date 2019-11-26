@@ -10,4 +10,7 @@ public interface ItemBuilderService {
 
 	Item createNewItem(Item item);
 
+
+	Item loadItem(long id);
+
 }
