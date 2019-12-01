@@ -6,11 +6,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "items")
+@Table(name = "monsters")
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public class Item extends PropertyMap{
+public class Monster extends PropertyMap{
 
-	
-	
-	
 }
